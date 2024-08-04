@@ -1,0 +1,65 @@
+// Define color variables
+$navbar-bg-color: #343a40;
+$navbar-link-color: #ffffff;
+$navbar-link-hover-color: #f8f9fa;
+$navbar-active-color: #e83e8c;
+
+// Navbar styling
+.navbar {
+  background-color: $navbar-bg-color;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  margin: 0 15px;
+  position: relative; // Ensure the child elements are positioned relative to this
+
+  .cart-count {
+    position: absolute;
+    top: -11px;
+    right: -13px;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    padding: 5px;
+    width: 13px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: $navbar-link-color;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: $navbar-link-hover-color;
+    color: $navbar-active-color;
+  }
+
+  &.active {
+    background-color: $navbar-active-color;
+    color: $navbar-link-hover-color;
+  }
+}

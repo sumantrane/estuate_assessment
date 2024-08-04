@@ -1,1 +1,36 @@
-<p>product-list works!</p>
+<div
+  *ngIf="(products$ | async)?.length !== 0; else loader"
+  class="product-list"
+>
+  <div *ngFor="let product of products$ | async" class="product-card">
+    <div class="product-image">
+      <img [src]="product.image" alt="{{ product.title }}" />
+    </div>
+    <div class="product-details">
+      <h3 class="product-title">{{ product.title }}</h3>
+      <p class="product-price">{{ product.price | currency }}</p>
+
+      <div class="quantity-input">
+        <label for="quantity-{{ product.id }}">Quantity:</label>
+        <input
+          id="quantity-{{ product.id }}"
+          type="number"
+          [value]="quantities[product.id] || 1"
+          (input)="setQuantity(product.id, $event)"
+          min="1"
+        />
+      </div>
+
+      <button class="add-to-cart-button" (click)="addToCart(product)">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #loader>
+  <div class="loader-container">
+    <div class="loader"></div>
+    <div class="loading-text">Loading products...</div>
+  </div>
+</ng-template>

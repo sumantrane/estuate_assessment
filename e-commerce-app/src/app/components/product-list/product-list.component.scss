@@ -1,0 +1,147 @@
+$primary-color: #007bff;
+$hover-color: #0056b3;
+$background-color: #f8f9fa;
+$card-background: #ffffff;
+$border-color: #e0e0e0;
+$text-color: #333;
+$button-padding: 10px 20px;
+$button-font-size: 1rem;
+$card-width: 250px;
+$image-height: 200px;
+$gutter: 15px; // Space between cards
+$loader-size: 50px;
+$loading-text-color: #555;
+$loading-text-font-size: 18px;
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns of equal width */
+  gap: $gutter; /* Space between cards */
+  padding: 20px;
+  background-color: $background-color;
+}
+
+.product-card {
+  background-color: $card-background;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+  width: $card-width;
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
+}
+
+.product-image {
+  width: 100%;
+  position: relative; /* Ensures child elements are positioned relative to this container */
+  padding-top: calc(
+    100% * 9 / 16
+  ); /* Aspect ratio of 16:9 (adjust based on your needs) */
+  overflow: hidden;
+  background-color: $background-color;
+}
+
+.product-image img {
+  position: absolute; /* Position absolutely within the container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  display: block;
+  transition: transform 0.3s ease-in-out; /* Optional: transition for smooth transformations */
+}
+
+.product-details {
+  padding: 15px;
+  text-align: center;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.product-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $primary-color;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #e83e8c;
+  margin-bottom: 10px;
+}
+
+.quantity-input {
+  display: flex; /* Use flexbox to align items inline */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  margin-bottom: 15px;
+}
+
+.quantity-input label {
+  margin-right: 10px; /* Space between the label and the input field */
+  font-size: 1rem; /* Adjust font size if needed */
+}
+
+.quantity-input input {
+  width: 60px; /* Adjust width as needed */
+  padding: 5px; /* Adjust padding for a smaller input */
+  font-size: 0.9rem; /* Smaller font size if needed */
+  border: 1px solid #ccc; /* Border style */
+  border-radius: 4px; /* Rounded corners */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.add-to-cart-button {
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: $button-padding;
+  font-size: $button-font-size;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+// Loader styles
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  background-color: $background-color; /* Optional: can be adjusted or removed */
+}
+
+.loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid $primary-color; /* Blue */
+  border-radius: 50%;
+  width: $loader-size;
+  height: $loader-size;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+.loading-text {
+  font-size: $loading-text-font-size;
+  color: $loading-text-color;
+  text-align: center; /* Center the text under the loader */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

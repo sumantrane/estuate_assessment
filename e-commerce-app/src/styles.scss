@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+/* Navigation Menu Styles */
+nav {
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+nav ul li a.active {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+nav ul li a:hover {
+  color: #0056b3;
+}

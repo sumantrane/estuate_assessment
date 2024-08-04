@@ -1,1 +1,47 @@
-<p>cart works!</p>
+<div
+  class="cart-page"
+  [ngClass]="(cartProducts$ | async)?.length == 0 ? 'no-items' : ''"
+>
+  <div *ngFor="let product of cartProducts$ | async" class="cart-item">
+    <div class="cart-item-image">
+      <img [src]="product.image" alt="{{ product.title }}" />
+    </div>
+    <div class="cart-item-details">
+      <div class="cart-item-title">{{ product.title }}</div>
+      <div class="cart-item-description">{{ product.description }}</div>
+      <div class="cart-item-price">{{ product.price | currency }}</div>
+
+      <!-- Quantity Controls -->
+      <div class="checkout-item-quantity">
+        Quantity:
+        <button (click)="decreaseQuantity(product.id)">-</button>
+        <span>{{ getDefaultQuantity(product) }}</span>
+        <button (click)="increaseQuantity(product.id)">+</button>
+      </div>
+
+      <div class="cart-item-actions">
+        <button (click)="removeProduct(product.id)" class="remove-button">
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clear Cart Button and Proceed to Checkout Button -->
+  <ng-container *ngIf="(cartProducts$ | async)?.length != 0; else noItems">
+    <button class="clear-cart-button" (click)="clearCart()">Clear Cart</button>
+
+    <!-- Proceed to Checkout Button -->
+    <button
+      class="proceed-to-checkout-button"
+      [routerLink]="['/checkout']"
+      [attr.disabled]="(cartProducts$ | async)?.length == 0 ? true : null"
+    >
+      Proceed to Checkout
+    </button>
+  </ng-container>
+
+  <ng-template #noItems>
+    Your cart is empty, please add some items to proceed.
+  </ng-template>
+</div>
