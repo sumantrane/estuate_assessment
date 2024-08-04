@@ -1,27 +1,37 @@
-# ECommerceApp
+# E-Commerce Site
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+## Overview
 
-## Development server
+This Angular-based e-commerce application provides a streamlined shopping experience with features for managing a shopping cart, and completing purchases. The app includes:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Product Catalog: View for products with detailed descriptions and images.
 
-## Code scaffolding
+Shopping Cart: Add items, adjust quantities, and see real-time updates. The cart is preserved using local storage.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Checkout Process: Easy management of order details.
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Follow these steps to set up and run the Angular application on your local machine.
 
-## Running unit tests
+### Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Before you begin, ensure you have the following installed:
 
-## Running end-to-end tests
+- **Node.js**: Download and install from [Node.js official site](https://nodejs.org/) (LTS version is recommended).
+- **npm**: Node package manager comes with Node.js. Verify its installation by running `npm -v` in your terminal.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Clone the Repository
 
-## Further help
+To get a copy of this repository, run the following command in terminal:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+git clone https://github.com/sumantrane/estuate_assessment.git
+
+## Install Dependencies
+
+cd e-commerce-app
+npm install
+
+## Running the Application
+
+ng serve
