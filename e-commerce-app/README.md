@@ -27,6 +27,8 @@ To get a copy of this repository, run the following command in terminal:
 
 git clone https://github.com/sumantrane/estuate_assessment.git
 
+switch to shopping_cart_estuate branch to check the changes.
+
 ## Install Dependencies
 
 cd e-commerce-app
