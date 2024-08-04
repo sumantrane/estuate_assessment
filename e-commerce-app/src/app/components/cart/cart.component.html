@@ -29,19 +29,23 @@
 
   <!-- Clear Cart Button and Proceed to Checkout Button -->
   <ng-container *ngIf="(cartProducts$ | async)?.length != 0; else noItems">
-    <button class="clear-cart-button" (click)="clearCart()">Clear Cart</button>
-
-    <!-- Proceed to Checkout Button -->
-    <button
-      class="proceed-to-checkout-button"
-      [routerLink]="['/checkout']"
-      [attr.disabled]="(cartProducts$ | async)?.length == 0 ? true : null"
-    >
-      Proceed to Checkout
-    </button>
+    <div class="button-container">
+      <button class="clear-cart-button" (click)="clearCart()">
+        Clear Cart
+      </button>
+      <button
+        class="proceed-to-checkout-button"
+        [routerLink]="['/checkout']"
+        [attr.disabled]="(cartProducts$ | async)?.length == 0 ? true : null"
+      >
+        Proceed to Checkout
+      </button>
+    </div>
   </ng-container>
 
   <ng-template #noItems>
-    Your cart is empty, please add some items to proceed.
+    <div class="no-items">
+      Your cart is empty, please add some items to proceed.
+    </div>
   </ng-template>
 </div>

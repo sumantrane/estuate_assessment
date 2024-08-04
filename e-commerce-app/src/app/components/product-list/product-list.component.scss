@@ -8,57 +8,65 @@ $button-padding: 10px 20px;
 $button-font-size: 1rem;
 $card-width: 250px;
 $image-height: 200px;
-$gutter: 15px; // Space between cards
+$gutter: 15px;
 $loader-size: 50px;
 $loading-text-color: #555;
 $loading-text-font-size: 18px;
 
 .product-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns of equal width */
-  gap: $gutter; /* Space between cards */
+  grid-template-columns: repeat(4, 1fr);
+  gap: $gutter;
   padding: 20px;
   background-color: $background-color;
 }
 
 .product-card {
+  display: flex;
+  flex-direction: column;
   background-color: $card-background;
   border: 1px solid $border-color;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
-  box-sizing: border-box; /* Ensure padding and border are included in width */
+  box-sizing: border-box;
   width: $card-width;
-  display: flex;
-  flex-direction: column; /* Stack child elements vertically */
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
 }
 
 .product-image {
   width: 100%;
-  position: relative; /* Ensures child elements are positioned relative to this container */
-  padding-top: calc(
-    100% * 9 / 16
-  ); /* Aspect ratio of 16:9 (adjust based on your needs) */
+  height: $image-height;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: $background-color;
+  position: relative;
 }
 
 .product-image img {
-  position: absolute; /* Position absolutely within the container */
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the container without distortion */
+  object-fit: cover;
   display: block;
-  transition: transform 0.3s ease-in-out; /* Optional: transition for smooth transformations */
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
 }
 
 .product-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 15px;
   text-align: center;
-  box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .product-title {
@@ -76,24 +84,24 @@ $loading-text-font-size: 18px;
 }
 
 .quantity-input {
-  display: flex; /* Use flexbox to align items inline */
-  align-items: center; /* Center align items vertically */
-  justify-content: center; /* Center align items horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 15px;
 }
 
 .quantity-input label {
-  margin-right: 10px; /* Space between the label and the input field */
-  font-size: 1rem; /* Adjust font size if needed */
+  margin-right: 10px;
+  font-size: 1rem;
 }
 
 .quantity-input input {
-  width: 60px; /* Adjust width as needed */
-  padding: 5px; /* Adjust padding for a smaller input */
-  font-size: 0.9rem; /* Smaller font size if needed */
-  border: 1px solid #ccc; /* Border style */
-  border-radius: 4px; /* Rounded corners */
-  box-sizing: border-box; /* Ensure padding and border are included in width */
+  width: 60px;
+  padding: 5px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .add-to-cart-button {
@@ -104,26 +112,27 @@ $loading-text-font-size: 18px;
   padding: $button-padding;
   font-size: $button-font-size;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: $hover-color;
-  }
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: auto;
 }
 
-// Loader styles
+.add-to-cart-button:hover {
+  background-color: $hover-color;
+  transform: scale(1.05);
+}
+
 .loader-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Full viewport height */
-  background-color: $background-color; /* Optional: can be adjusted or removed */
+  height: 100vh;
+  background-color: $background-color;
 }
 
 .loader {
-  border: 8px solid #f3f3f3; /* Light grey */
-  border-top: 8px solid $primary-color; /* Blue */
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid $primary-color;
   border-radius: 50%;
   width: $loader-size;
   height: $loader-size;
@@ -134,7 +143,7 @@ $loading-text-font-size: 18px;
 .loading-text {
   font-size: $loading-text-font-size;
   color: $loading-text-color;
-  text-align: center; /* Center the text under the loader */
+  text-align: center;
 }
 
 @keyframes spin {
