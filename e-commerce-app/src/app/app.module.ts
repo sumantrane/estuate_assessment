@@ -8,9 +8,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductListComponent, CheckoutComponent],
+  declarations: [AppComponent, ProductListComponent, CheckoutComponent, CartComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
